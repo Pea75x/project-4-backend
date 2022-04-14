@@ -9,5 +9,5 @@ from .models import *
 # Create your views here.
 class FestivalList(APIView):
   def get(self, request):
-    serializer = FestivalSerializer(festival, many=True)
+    serializer = FestivalSerializer(Festival, many=True)
     return Response(serializer.data)
