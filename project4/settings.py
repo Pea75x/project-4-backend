@@ -35,10 +35,8 @@ else:
 DEBUG = ENV == 'DEV'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-
 
 # Application definition
 
@@ -91,19 +89,11 @@ WSGI_APPLICATION = 'project4.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'project4',
-        'HOST': 'localhost',
-        'PORT': 5432
-    }
-}
-
+DATABASES = {}
 if ENV != 'DEV':
-   DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)	
+  DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)	
 else:
-   DATABASES['default'] = {
+  DATABASES['default'] = {
     'ENGINE': 'django.db.backends.postgresql_psycopg2',
     'NAME': 'project4',
     'HOST': 'localhost',
@@ -153,3 +143,5 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 django_on_heroku.settings(locals())
+
+CSRF_TRUSTED_ORIGINS = ['https://project4-priya.herokuapp.com/']
