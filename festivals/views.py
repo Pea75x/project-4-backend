@@ -6,8 +6,8 @@ from .models import *
 from .serializers.common import * 
 
 
-
 # Create your views here.
 class FestivalList(ListCreateAPIView):
     queryset = Festival.objects.all()
-    serializer_class = FestivalSerializer
+    serializer_class = PopulatedFestivalSerializer
+

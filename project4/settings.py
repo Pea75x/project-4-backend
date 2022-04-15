@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'festivals',
-    'rest_framework'
+    'rest_framework',
+    'jwt_auth'
 ]
 
 MIDDLEWARE = [
@@ -95,7 +96,7 @@ if ENV != 'DEV':
 else:
   DATABASES['default'] = {
     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    'NAME': 'project4',
+    'NAME': 'project4-custom-user',
     'HOST': 'localhost',
     'PORT': 5432
   }
@@ -141,6 +142,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'jwt_auth.CustomUser'
 
 CSRF_TRUSTED_ORIGINS = ['https://project4-priya.herokuapp.com']
 

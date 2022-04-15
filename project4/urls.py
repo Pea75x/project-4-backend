@@ -16,8 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from festivals.views import * 
+from jwt_auth.views import * 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('festivals/', FestivalList.as_view())
+    path('festivals/', FestivalList.as_view()),
+    path('login/', LoginView.as_view()),
+    path('register/', RegisterView.as_view()),
+    path('credentials/', CredentialsView.as_view())
 ]
