@@ -36,7 +36,7 @@ DEBUG = ENV == 'DEV'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["project4-priya.herokuapp.com"]
 
 # Application definition
 
@@ -142,6 +142,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-django_on_heroku.settings(locals())
+CSRF_TRUSTED_ORIGINS = ['https://project4-priya.herokuapp.com']
 
-CSRF_TRUSTED_ORIGINS = ['https://project4-priya.herokuapp.com/']
+django_on_heroku.settings(locals())
