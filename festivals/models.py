@@ -19,7 +19,6 @@ class Festival(models.Model):
   start_date = models.DateField(null=True)
   end_date = models.DateField(null=True)
   image = models.CharField(max_length=200, null=True)
-  # attending = ManyToManyField(Attending, related_name=festival, blank=True)
   activities = ArrayField(models.CharField(max_length=30), null=True)
   lat = models.FloatField(null=True)
   long = models.FloatField(null=True)
@@ -47,5 +46,9 @@ class Attending(models.Model):
   price_max = models.FloatField(null=True)
   activities = ArrayField(models.CharField(max_length=30), null=True)
   comment = models.CharField(max_length=400)
+
+class Message(models.Model):
+  sourceUserId = models.ForeignKey(CustomUser, related_name='message', on_delete=models.CASCADE)
+  #destinationUserId = models.ForeignKey(CustomUser, related_name='message', on_delete=models.CASCADE)
 
 
