@@ -1,6 +1,6 @@
 from time import strftime
-from genericpath import exists
-from django.shortcuts import render
+#from genericpath import exists
+# from django.shortcuts import render
 from datetime import datetime, timedelta
 from rest_framework.views import APIView
 from rest_framework.response import Response

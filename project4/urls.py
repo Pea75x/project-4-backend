@@ -21,7 +21,12 @@ from jwt_auth.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('festivals/', FestivalList.as_view()),
+    path('festivals/<int:pk>/', FestivalUpdateDestroy.as_view()),
+    path('festival/<int:pk>/', FestivalById.as_view()),
     path('login/', LoginView.as_view()),
     path('register/', RegisterView.as_view()),
-    path('credentials/', CredentialsView.as_view())
+    path('credentials/', CredentialsView.as_view()),
+    path('hotels/', HotelList.as_view()),
+    path('hotels/<int:pk>/', HotelUpdateDestroy.as_view()),
+    path('hotel/<int:pk>/', HotelById.as_view())
 ]

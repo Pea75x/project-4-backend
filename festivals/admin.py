@@ -4,4 +4,6 @@ from .models import *
 # Register your models here.
 admin.site.register(Festival)
 admin.site.register(Hotel)
-admin.site.register(Attending)
+admin.site.register(Message)
+admin.site.register(GroupTrip)
+
