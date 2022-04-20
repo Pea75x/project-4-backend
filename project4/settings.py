@@ -48,10 +48,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
-    'festivals',
-    'attending',
     'rest_framework',
-    'jwt_auth'
+    'jwt_auth',
+    'festivals',
+    'attending'
 ]
 
 MIDDLEWARE = [

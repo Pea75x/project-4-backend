@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from festivals.views import * 
 from jwt_auth.views import * 
+from attending.views import AttendingPost
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,5 +29,8 @@ urlpatterns = [
     path('credentials/', CredentialsView.as_view()),
     path('hotels/', HotelList.as_view()),
     path('hotels/<int:pk>/', HotelUpdateDestroy.as_view()),
-    path('hotel/<int:pk>/', HotelById.as_view())
+    path('hotel/<int:pk>/', HotelById.as_view()),
+    path('user/<int:pk>/', UserById.as_view()),
+    path('post/', AttendingPost.as_view())
+    
 ]
