@@ -34,6 +34,7 @@ urlpatterns = [
     path('post/', AttendingPost.as_view()),
     path('message/', SendMessage.as_view()),
     path('all-messages/', getAllMessages.as_view()),
-    path('messages/', getFriendsMessages.as_view())
+    path('messages/', getFriendsMessages.as_view()),
+    #path('friend-request/<int:pk>', friendRequest.as_view())
     
 ]

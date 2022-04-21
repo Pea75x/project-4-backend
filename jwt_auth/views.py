@@ -6,7 +6,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.exceptions import PermissionDenied
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.generics import RetrieveAPIView
+from rest_framework.generics import RetrieveAPIView, RetrieveUpdateDestroyAPIView
 from django.contrib.auth import get_user_model
 from django.conf import settings
 import jwt
@@ -65,9 +65,14 @@ class UserById(RetrieveAPIView):
   queryset = User.objects.all()
   serializer_class = PublicUserSerializer
 
-# class friendRequest(RetrieveUpdateDestroyAPIView):
-    
+# class friendRequest(APIView):
+#   queryset = User.objects.all()
+#   serializer_class = UserSerializer
 
-# class FestivalUpdateDestroy(RetrieveUpdateDestroyAPIView):
-#   queryset = Festival.objects.all()
-#   serializer_class = FestivalSerializer
+#   def post(self, request):
+#     friend = request.user
+#    # friend.append("hello")
+#     # request.data['friends'].push(myId) 
+#     # sourceUserId = request.user.id
+#     return Response(friend)
+

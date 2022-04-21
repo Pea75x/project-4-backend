@@ -27,6 +27,10 @@ class MessageSerializer(serializers.ModelSerializer):
     model = Message
     fields = ('__all__')
 
+class PopulatedMessageSerializer(MessageSerializer):
+  source_user = PublicUserSerializer()
+  destination_user = PublicUserSerializer()
+
 # class GroupTripSerializer(serializers.ModelSerializer):
 #   class Meta:
 #     model = Message
