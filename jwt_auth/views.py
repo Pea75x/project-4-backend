@@ -55,14 +55,19 @@ class LoginView(APIView):
     return Response({'token': token, 'message': f'Welcome back {user.username}!'})
 
 class CredentialsView(APIView):
-    print("hello")
     permission_classes = (IsAuthenticated,)
 
     def get(self, request):
-        user = user.objects.get(id = request.user.id)
-        serializer = UserSerializer(user)
+        serializer = UserSerializer(request.user)
         return Response(serializer.data)
 
 class UserById(RetrieveAPIView):
   queryset = User.objects.all()
   serializer_class = PublicUserSerializer
+
+# class friendRequest(RetrieveUpdateDestroyAPIView):
+    
+
+# class FestivalUpdateDestroy(RetrieveUpdateDestroyAPIView):
+#   queryset = Festival.objects.all()
+#   serializer_class = FestivalSerializer

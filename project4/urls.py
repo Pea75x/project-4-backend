@@ -31,6 +31,9 @@ urlpatterns = [
     path('hotels/<int:pk>/', HotelUpdateDestroy.as_view()),
     path('hotel/<int:pk>/', HotelById.as_view()),
     path('user/<int:pk>/', UserById.as_view()),
-    path('post/', AttendingPost.as_view())
+    path('post/', AttendingPost.as_view()),
+    path('message/', SendMessage.as_view()),
+    path('all-messages/', getAllMessages.as_view()),
+    path('messages/', getFriendsMessages.as_view())
     
 ]

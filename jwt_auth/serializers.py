@@ -33,4 +33,4 @@ class UserSerializer(serializers.ModelSerializer):
 class PublicUserSerializer(serializers.ModelSerializer):
   class Meta:
     model = User
-    fields = ("username", 'image')
+    fields = ("username", 'image', 'attending')

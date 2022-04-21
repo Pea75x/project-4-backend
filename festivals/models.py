@@ -38,9 +38,13 @@ class Hotel(models.Model):
     return self.name
 
 class Message(models.Model):
-  sourceUserId = models.ForeignKey(CustomUser, related_name='message', on_delete=models.CASCADE)
-  destinationUserId = models.CharField(max_length=200)
+  source_user = models.ForeignKey(CustomUser, related_name='source_user_message', on_delete=models.CASCADE)
+  destination_user = models.ForeignKey(CustomUser, related_name='destination_user_message', on_delete=models.CASCADE)
   text = models.CharField(max_length=500)
+  created_date = models.DateTimeField(auto_now_add = True)
+
+  def __str__(self):
+      return f'{self.source_user} to {self.destination_user}'
 
 class GroupTrip(models.Model):
   pending_members = ArrayField(models.CharField(max_length=20), null=True)
