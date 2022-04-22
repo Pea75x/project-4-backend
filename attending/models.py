@@ -5,6 +5,7 @@ from django.contrib.postgres.fields import ArrayField
 
 user = get_user_model()
 
+
 # Create your models here.
 class Attending(models.Model):
   festival = models.ForeignKey(Festival, related_name='attending', on_delete=models.CASCADE)
