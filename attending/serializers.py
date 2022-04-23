@@ -11,4 +11,7 @@ class AttendingSerializer(serializers.ModelSerializer):
 class PopulatedAttendingSerializer(AttendingSerializer):
   user = PublicUserSerializer()
 
-
+class MiniAttendingSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Attending
+    fields = ('id', 'festival', 'user', 'comment')
