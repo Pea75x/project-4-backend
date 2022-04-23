@@ -10,3 +10,5 @@ class AttendingSerializer(serializers.ModelSerializer):
 
 class PopulatedAttendingSerializer(AttendingSerializer):
   user = PublicUserSerializer()
+
+

@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from ..models import *
 from jwt_auth.serializers import *
-from attending.serializers import PopulatedAttendingSerializer
+from attending.serializers import PopulatedAttendingSerializer, AttendingSerializer
 from jwt_auth.serializers import PublicUserSerializer
 
 class FestivalSerializer(serializers.ModelSerializer):
@@ -39,4 +39,10 @@ class PopulatedMessageSerializer(MessageSerializer):
 # class PopulatedGroupTripSerializer(GroupTripSerializer):
 #   members = UserSerializer(many=True)
 #   pending_members = UserSerializer(many=True)
+
+class populatedAttendingWithFestivalSerializer(AttendingSerializer):
+  festival = FestivalSerializer()
+
+class populatedPublicUserSerializer(PublicUserSerializer):
+  attending = populatedAttendingWithFestivalSerializer(many=True)
 

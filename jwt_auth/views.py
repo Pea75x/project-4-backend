@@ -11,6 +11,7 @@ from django.contrib.auth import get_user_model
 from django.conf import settings
 import jwt
 from .serializers import *
+from festivals.serializers.common import populatedPublicUserSerializer
 
 # Create your views here.
 
@@ -63,7 +64,7 @@ class CredentialsView(APIView):
 
 class UserById(RetrieveAPIView):
   queryset = User.objects.all()
-  serializer_class = PublicUserSerializer
+  serializer_class = populatedPublicUserSerializer
 
 # class friendRequest(APIView):
 #   queryset = User.objects.all()
