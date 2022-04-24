@@ -55,6 +55,20 @@ class getAllMessages(ListCreateAPIView):
     queryset = Message.objects.all()
     serializer_class = MessageSerializer
 
+
+class getMyMessages(ListCreateAPIView):
+    serializer_class = PopulatedMessageSerializer
+    
+    def get_queryset(self):
+      queryset = Message.objects.all()
+      sourceUserId = self.request.user.id
+
+      if sourceUserId:
+        sent_messages = queryset.filter(source_user=sourceUserId)
+        return sent_messages
+
+
+
 class getFriendsMessages(ListCreateAPIView):
     serializer_class = PopulatedMessageSerializer
 
