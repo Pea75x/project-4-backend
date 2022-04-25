@@ -6,6 +6,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework import status, filters
 from rest_framework.response import Response
 
+
 #! FESTIVALS
 # GET ALL FESTIVALS/ CREATE FESTIVAL
 class FestivalList(ListCreateAPIView):
@@ -83,4 +84,15 @@ class getFriendsMessages(ListCreateAPIView):
       received_messages = queryset.filter(destination_user=sourceUserId, source_user=destinationUserId)
       all_messages = list(sent_messages) + list(received_messages)
       return all_messages
+
+class getFestivalByName(ListCreateAPIView):
+    serializer_class = PopulatedFestivalSerializer
+    
+    def get_queryset(self):
+      queryset = Festival.objects.all()
+      festivalName = self.request.query_params.get('name')
+
+      if festivalName:
+        festivalData = queryset.filter(name__contains= festivalName)
+        return festivalData
 

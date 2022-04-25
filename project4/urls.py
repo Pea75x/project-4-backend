@@ -24,6 +24,7 @@ urlpatterns = [
     path('festivals/', FestivalList.as_view()),
     path('festivals/<int:pk>/', FestivalUpdateDestroy.as_view()),
     path('festival/<int:pk>/', FestivalById.as_view()),
+    path('festivalsearch/', getFestivalByName.as_view()),
     path('login/', LoginView.as_view()),
     path('register/', RegisterView.as_view()),
     path('credentials/', CredentialsView.as_view()),
