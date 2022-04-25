@@ -7,12 +7,24 @@ from jwt_auth.models import CustomUser
 class Festival(models.Model):
   ALL = 'All'
   CROATIA = 'Croatia'
+  FRANCE = 'France'
+  GERMANY = 'Germany'
+  HUNGARY = 'Hungary'
   MALTA = 'Malta'
-
+  MEXICO = 'Mexico'
+  NETHERLANDS = 'Netherlands'
+  SPAIN = 'Spain'
+  
   LOCATION_CHOICES = [
         (ALL, 'All'),
         (CROATIA, 'Croatia'),
+        (FRANCE, 'France'),
+        (GERMANY, 'Germany'),
+        (HUNGARY, 'Hungary'),
         (MALTA, 'Malta'),
+        (MEXICO, 'Mexico'),
+        (NETHERLANDS, "Netherlands"),
+        (SPAIN, 'Spain')
     ]
   name = models.CharField(max_length=50)
   location = models.CharField(max_length=20, choices=LOCATION_CHOICES, default=ALL)
