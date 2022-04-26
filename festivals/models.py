@@ -35,7 +35,7 @@ class Festival(models.Model):
   start_date = models.DateField(null=True)
   end_date = models.DateField(null=True)
   image = models.CharField(max_length=200, null=True)
-  activities = ArrayField(models.CharField(max_length=30), null=True)
+  activities = ArrayField(models.CharField(max_length=50), null=True)
   lat = models.FloatField(null=True)
   long = models.FloatField(null=True)
 
