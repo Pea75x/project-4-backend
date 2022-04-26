@@ -14,6 +14,8 @@ class Festival(models.Model):
   MEXICO = 'Mexico'
   NETHERLANDS = 'Netherlands'
   SPAIN = 'Spain'
+  AMERICA = 'USA'
+  BELGIUM = 'Belgium'
   
   LOCATION_CHOICES = [
         (ALL, 'All'),
@@ -24,7 +26,9 @@ class Festival(models.Model):
         (MALTA, 'Malta'),
         (MEXICO, 'Mexico'),
         (NETHERLANDS, "Netherlands"),
-        (SPAIN, 'Spain')
+        (SPAIN, 'Spain'),
+        (AMERICA, 'USA'),
+        (BELGIUM, 'Belgium')
     ]
   name = models.CharField(max_length=50)
   location = models.CharField(max_length=20, choices=LOCATION_CHOICES, default=ALL)
